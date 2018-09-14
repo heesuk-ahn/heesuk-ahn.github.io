@@ -1,0 +1,118 @@
+<div class="about row">
+
+    <div class="col-md-8">
+
+        <h2>About me</h2>
+<hr>
+안녕하세요, 좋은 엔지니어가 되고싶은 소프트웨어 엔지니어 안희석입니다. <br>
+이 블로그에 제가 요새 공부하는 것들, 공부하면서 느낀 것들을 적어나갈 생각입니다. <br>
+제가 정리한 것들이 누군가에게는 도움이 되었으면 좋겠습니다.
+
+        <h2>Contact</h2>
+        <hr>
+        <ul>
+            <li>Email：<a href="mailto:{{ site.email }}" target="_top">{{ site.email }}</a></li>
+            <li>GitHub：<a href="{{ site.github_url }}">{{ site.github_url }}</a></li>
+        </ul>
+
+        <h2>Skill Keywords</h2>
+        <hr>
+
+        {% if site.language_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Languae</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.language_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.library_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Framework & Library</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.library_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.devops_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">DevOps</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.devops_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.database_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Database</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.database_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.broker_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Real-time distributed</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.broker_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.cooperation_skil %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cooperation</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.cooperation_skil %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.development_methodology_skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Development Methodology</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.development_methodology_skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <div class="col-md-4">
+        {% include sidebar-popular-repo.html %}
+    </div>
+
+</div>
