@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Python + GPIO] 1. Python을 이용하여 라즈베리파이 gpio를 제어해보자.
+title: 1. Python을 이용하여 라즈베리파이 gpio를 제어해보자.
 category: Python
 tags: [python]
 ---
@@ -13,17 +13,13 @@ gpio는 라즈베리파이의 제어할 수 있는 핀들인데, 이 핀들을 �
 
 ##Python Gpio 라이브러리를 다운로드 받자.
 
-파이썬에서 Gpio 라이브러리는
+파이썬에서 Gpio 라이브러리는 `WiringPi`와 `RPI.Gpio`가 있는데, 이 포스트에서는 `RPI.Gpio`를 이용해보려고 합니다.
 
-`https://pypi.org/project/RPi.GPIO/`에서 확인이 가능합니다.
+RPI.GPIO 라이브러리에 대한 상세설명은 `https://pypi.org/project/RPi.GPIO/`에서 확인이 가능합니다.
 
-python과 pip이 설치되어 있다면, `pip install RPi.GPIO` 커맨드를 이용해서 간단하게
+python과 pip이 설치되어 있다면, `pip install RPi.GPIO` 커맨드를 이용해서 간단하게 라이브러리를 받아올 수 있습니다.
 
-라이브러리를 받아올 수 있습니다.
-
-단, Gpio는 라즈베리파이 모듈이므로, 라즈베리파이의 OS 환경에서 받는 것이 아니라면, 에러가
-
-발생할 수 있습니다.
+단, Gpio는 라즈베리파이 모듈이므로, 라즈베리파이의 OS 환경에서 받는 것이 아니라면, 에러가 발생할 수 있습니다.
 
  저의 경우, 제 PC의 환경이 Mac OS이고, Mac OS 환경에서 Pycharm IDE를 이용해서 코딩을 하고 싶어서
 
