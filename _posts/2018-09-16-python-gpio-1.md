@@ -108,11 +108,14 @@ Git을 이용해서 가져오실 예정이라면, 제가 하는 방법이 도움
 
  GPIO 핀을 설정 후에, 만약 프로그램을 종료한다고 했을 때, 설정된 pin 값들에 대한 정보를 모두 초기화 해주어야 합니다.
  그렇지 않을경우, 다시 실행할 때, 경고 메세지가 나오게 됩니다.
+ clean up함수는 아래와 같은 방식으로 사용할 수 있습니다.
 
- `except KeyboardInterrupt:
-    GPIO.cleanup()`
-
- 위와 같이 키보드 인터럽트를 설정해 주시고, 실제 키보드에서 ctrl+c 커맨드를 통해서 종료시에 위에 함수가 실행되며 설정이 초기화 됩니다.    
+ ```
+    GPIO.cleanup() : 모든 채널을 클린업 하고 싶을 때.  
+    GPIO.cleanup(channel) : 특정 채널만 클린업 하고 싶을 때.
+    GPIO.cleanup( (channel1, channel2) ) : 여러 채널을 클린업 하고 싶을 때. (tuple 사용)
+    GPIO.cleanup( [channel1, channel2] ) : 여러 채널을 클린업 하고 싶을 때. (array 사용)
+ ```
 
 ## [Mocking!] 위의 GPIO 함수들을 `가짜`로 만들어보자.
 
