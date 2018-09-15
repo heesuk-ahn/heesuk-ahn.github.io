@@ -2,7 +2,7 @@
 layout: post
 title: [Python + GPIO] 1. Python을 이용하여 라즈베리파이 gpio를 제어해보자.
 category: Python
-tags: [python, iot, firmware]
+tags: [python]
 ---
 
 오늘은 Python을 이용해서 라즈베리파이의 gpio를 제어해보려고 합니다.
@@ -65,7 +65,7 @@ Git을 이용해서 가져오실 예정이라면, 제가 하는 방법이 도움
 
   ```  
   이때, mode는 optional한 값이며, 그 값은 `GPIO.BOARD` 또는 `GPIO.BCM` 또는 None 값일 수 있습니다.
-    
+
 ###- GPIO.setup
 
   setup 함수의 경우, GPIO의 핀들에 대한 설정을 해준다고 생각하시면 됩니다. 센서로부터 값이 input이 되는 경우가 있고,
@@ -81,6 +81,32 @@ Git을 이용해서 가져오실 예정이라면, 제가 하는 방법이 도움
    `GPIO.setup(14, GPIO.OUT)`
 
   위와 같이 설정을 할 수 있습니다.
+
+  만약, 여러 채널을 동시에 등록하고 싶다면, RPI.Gpio는 이것 또한 지원을 해주는데,
+
+  ```
+  chan_list = [11,12]    # add as many channels as you want!
+                       # you can tuples instead i.e.:
+                       #   chan_list = (11,12)
+  GPIO.setup(chan_list, GPIO.OUT)
+  ```
+  위와 같이 채널을 튜플 형태나, 어레이 형태로 넣을 수도 있습니다.
+
+  이러한 setup은 `채널을 개통한다`라고 생각하시면 됩니다.
+
+###- GPIO.input
+
+  이제 실제로 설정한 채널로 부터 센서값을 받는다고 해봅시다. 센서값을 읽어들이기 위해서
+
+  ```
+  GPIO.input(channel)
+  ```
+  를 이용하여서 데이터 값을 읽어들일 수 있습니다. 데이터 값을 읽어들였을 때, 돌아올 수 있는 return 값은
+
+  `0 / GPIO.LOW / False or 1 / GPIO.HIGH / True.` 이 있습니다.
+
+###- GPIO.output
+
 
 ###- GPIO.cleanup
 
