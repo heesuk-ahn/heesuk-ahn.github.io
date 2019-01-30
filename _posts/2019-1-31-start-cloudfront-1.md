@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1. [AWS] cloudfront 와 s3를 이용하여 정적 웹페이지 배포하기
+title: [AWS] cloudfront 와 s3를 이용하여 정적 웹페이지 배포하기 (1)
 category: AWS
 tags: [aws]
 ---
@@ -35,8 +35,8 @@ cloud front에서 해당 오브젝트를 전세계에 존재하는 캐시서버�
 
 ## step 1) s3에 버킷을 생성하자.
 
-![create s3 bucket](../assets/images/start-cloud-front/cloud-front-1.png)
-![create html](../assets/images/start-cloud-front/cloud-front-2.png)
+![create s3 bucket](./assets/images/start-cloud-front/cloud-front-1.png)
+![create html](./assets/images/start-cloud-front/cloud-front-2.png)
 
 먼저, 클라우드프론트를 설정하기에 앞서 s3에 버킷을 생성하고 해당 버킷에 index.html 파일을 넣도록 하겠습니다. 테스트이기 때문에 저는 간단한 html 문서를 넣으려고 합니다.
 
@@ -61,42 +61,42 @@ cloudfront 서비스에 들어가서 `create destribution`을 누르면 위와 �
 
 그러면 위와 같은 화면에서 설정을 할 수 있습니다. 하나씩 살펴보도록 하겠습니다.
 
-##Origin Settings
+## Origin Settings
 
-#Origin Domain Name
+# Origin Domain Name
 
 먼저 오리진 도메인 네임은 실제 클라우드 프론트의 원본이 되는 서비스에 대해서 선택을 하는 곳입니다.
 저희는 이미 이전에 s3에 버킷을 생성을 미리 해놨기 때문에, 드롭다운을 눌러보면 리스트에 나오는 것을 확인할 수 있습니다.
 
-#Orgin Path
+# Orgin Path
 
 origin path의 경우는 요청에 대해서 prefix를 붙일경우에 사용합니다. 예를 들어서, 버킷 안에 dist라는 디렉토리가 있고
 그 디렉토리 안에 index.html 파일이 있다고 가정해봅시다.
 그 경우 클라우드 프론트에 들어오는 요청에 항상 dist 디렉토리 안을 root로 보려면
 'Origin Path'에 '/dist'를 넣어줍니다. 이 경우, 클라우드 프론트에 모든 요청은 root를 dist 아래 단계에서부터 보게 됩니다.
 
-#Origin ID
+# Origin ID
 
 배포내에서 오리진을 식별하기위한 유일한 키값입니다.
 
-#Restrict Bucket Access
+# Restrict Bucket Access
 
 만약, 버킷내에 정적파일을 호스팅하게 되면 호스팅하고나서 얻게되는 URL이 있습니다. 이 URL로 유저가 접속하는 것이 아니라,
 항상 cloudFront를 통해서 접속하게 할때 Yes를 누릅니다.
 
-#Origin Access Identity
+# Origin Access Identity
 
 Restrict Bucket Access에서 Yes를 누를 경우, OAI를 생성할 수 있습니다. 이것은 s3 버킷내에 GetObject 권한을
 설정하는데에 도움을 줍니다. 여기서는 최초 설정이기 때문에 'create a new Identity'를 눌러줍니다.
 
-#Grant Read Permissions on Bucket
+# Grant Read Permissions on Bucket
 
 cloudFront가 배포될 때, Bucket에 Read Permission을 자동적으로 얻기 위한 설정입니다. yes를 선택합니다.
 
-##Default Cache Behavior Settings
+## Default Cache Behavior Settings
 
 
-#Object Caching
+# Object Caching
 
 엣지 로케이션에서 기본적으로 24시간동안 컨텐츠를 저장하고 있습니다. 이 말이 무엇이냐면, 만약 오리진(s3 bucket)에서
 index-v1.html을 배포했다고 해봅시다. 그리고 약 6시간 뒤에 index-v2.html을 배포할 경우, 실제로 배포된 웹페이지에 접속을 해보면, update가 되어있지 않습니다.
@@ -109,25 +109,25 @@ index-v1.html을 배포했다고 해봅시다. 그리고 약 6시간 뒤에 inde
 또 단점이라고 생각한다면 즉각적으로 배포를 할 수 없다는 것인데, 이에 대한것은 아래에서 'invalidation (무효화)'를 통해
 캐시 서버에 저장된 컨텐츠들을 지우고 새로운 버젼으로 업데이트 하는 것에 대해 작성하도록 하겠습니다.
 
-#Viewer Protocol Policy
+# Viewer Protocol Policy
 
 실제 유저의 프로토콜 정책을 수립합니다. 여기서 저는 'Redirect http to https'를 선택하였는데, 그 이유는
 만약 유저가 http로 클라우드 프론트에 접속한다 하더라도 https로 자동 리다이렉트 되게 하기 위해서입니다.
 ssl 설정을 하지 않으실거라면, Http and Https로 설정하셔도 무방합니다.
 
-#Compress Objects Automatically
+# Compress Objects Automatically
 
 이것은 컨텐츠들을 자동으로 gzip으로 압축할 것인지에 대한 설정입니다. 만약 이 설정이 되어 있으면 요청에 Accept-Encoding: gzip이 있다면, 압축할 수 있는 컨텐츠는 압축하여 유저에게 반환합니다.
  당연히 컨텐츠의 사이즈가 줄기 때문에 응답속도가 더 좋아질 수 있습니다. cloudFront는 압축된 컨텐츠를 엣지 로케이션에 저장하는데, 만약 엣지 로케이션에 압축된 컨텐츠가 없을 경우, 오리진으로부터 컨텐츠를 받아온 후, 엣지 로케이션에서 gzip으로 압축하여 저장합니다.
 
-##Distribution Settings
+## Distribution Settings
 
-#Price Class
+# Price Class
 
 Price class에 따라서 가격이 좀 더 비싸질수도 있습니다. 성능이 좋기로는 모든 엣지 로케이션 설정하는 것이 좋지만,
 꼭 전 세계에 딜리버해야하는 서비스가 아닐 경우는 US, Canada, Eu, Asia, Africa 설정만 선택해도 충분합니다.
 
-#Alternate Domain Names
+# Alternate Domain Names
 
 이 부분은 중요합니다. Route 53에서 도메인을 관리할 때, Alias에 CloudFront url이 노출되기 위해서는 이 Cname에
 사용할 도메인을 입력해주어야 합니다. 만약 여러 CNAME을 사용할 경우는 콤마를 통해 분리할 수 있는데,
@@ -140,28 +140,28 @@ Price class에 따라서 가격이 좀 더 비싸질수도 있습니다. 성능�
 위와 같이 2개의 도메인을 등록할수도 있습니다. Route53에서 해당 Record set을 등록하는 것은 CloudFront 생성 이후에
 진행하도록 하겠습니다.
 
-#SSL Certificate
+# SSL Certificate
 
 도메인에 ssl을 적용하기 위해서 ssl 인증서를 등록할 수 있습니다. 이 경우에 만약 본인의 도메인에 맞게 하기 위해서는
 ACM (Amazon Certificate Manager)서비스에 미리 ssl 인증서를 등록하여야 사용할 수 있습니다.
 
-#Default Root Object
+# Default Root Object
 
 cloudFront url로 접속할 때, 기본적으로 root object를 설정할 수 있습니다. 저희는 root object가 `index.html`
 이므로, index.html을 적어주면 됩니다.
 
-#Distribution State
+# Distribution State
 
 Enabled로 설정하면 해당 배포를 생성하자마자 배포가 시작됩니다.
 
-##생성 후, 실제 CloudFront 배포는 약 15분에서 20분정도 소요됩니다.
+## 생성 후, 실제 CloudFront 배포는 약 15분에서 20분정도 소요됩니다.
 
 생각보다 시간이 오래걸립니다. cloudFront의 destribution 리스트를 살펴보면 저희가 막 생성한 배포의 status가
 `In Progress`로 나와있는 것을 확인할 수 있습니다. 이것이 `Deployed`로 바뀐다면 배포가 완료되며, 이후에
 `Domain Name`에 있는 url로 접속을 시도하면 성공적으로 접속이 되는 것을 확인할 수 있습니다.
 
 
-##Route53 도메인과 CloudFront 연결하기
+## Route53 도메인과 CloudFront 연결하기
 
 그러나, 저희가 실제로 서비스에서 사용하기에 cloudFront URL은 사용하기가 어렵기 때문에, Route53에서 도메인을 등록한 후, 해당 도메인을 CloudFront와 연결을 해주어야 합니다.
 
@@ -216,7 +216,6 @@ drop down을 확인해보시면, cloudFront url을 확인할 수 있습니다.
 
 SPA의 경우, 만약 하위 패스로 직접적으로 url에 접속하려고 할 경우, 403 에러가 화면에 나타날 수 있습니다.
 즉 예를 들어서 아래와 같은 페이지가 있다고 해봅시다.
-
 
 ```
 www.example.com
