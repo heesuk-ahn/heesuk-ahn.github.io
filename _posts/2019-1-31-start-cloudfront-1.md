@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1. [AWS] cloudfront 와 s3를 이용하여 정적 웹페이지 배포하기
+title: [AWS] cloudfront 와 s3를 이용하여 정적 웹페이지 배포하기 (1)
 category: AWS
 tags: [aws]
 ---
