@@ -100,3 +100,5 @@ broker_skill: [Kafka, Mqtt, PubSub]
 cooperation_skil: [Git, Agile Scrum]
 
 development_methodology_skill : [TDD]
+
+front_skill : [Vue]
