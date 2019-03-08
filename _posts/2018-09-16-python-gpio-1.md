@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1. Python을 이용하여 라즈베리파이 gpio를 제어해보자.
+title: (Python) 1. Python을 이용하여 라즈베리파이 gpio를 제어해보자.
 category: Python
 tags: [python]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Node.js resify를 이용하여 Restful API를 만들어보자.
+title: (Node) Node.js resify를 이용하여 Restful API를 만들어보자.
 category: NodeJs
 tags: [nodejs]
 ---
