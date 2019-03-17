@@ -619,6 +619,6 @@ docker-compose up
  ```
  - postman 앱을 실행시킨 후, 아래와 같이 설정후 요청한다.
 
-![postman](postman-example.png)
+![postman](https://github.com/heesuk-ahn/heesuk-ahn.github.io/blob/master/assets/images/postman-example.png)
 
  - response가 성공적으로 돌아온다면 성공!
