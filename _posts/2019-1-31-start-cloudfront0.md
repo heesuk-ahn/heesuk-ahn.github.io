@@ -238,7 +238,7 @@ vue의 경우에는 vue router가 있을 것이고, react의 경우에는 react 
 
 Create Custom Error Response를 누르신 후, 아래와 같이 룰을 생성하시면 됩니다.
 
-![create s3 bucket](https://github.com/heesuk-ahn/heesuk-ahn.github.io/blob/master/assets/images/start-cloud-front/cloud-front-4.png)
+![create s3 bucket](https://github.com/heesuk-ahn/heesuk-ahn.github.io/blob/master/assets/images/postman-example.png?raw=true)
 
 위와 같이 400에러나 404에러도 설정해주시면 됩니다.
 그 후, 실제로 하위 패스로 직접적으로 접속을 해도 페이지에 403이 아니라, 실제 /company 페이지를 보실 수 있을 겁니다.
