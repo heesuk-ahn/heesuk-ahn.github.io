@@ -1,4 +1,9 @@
-
+---
+layout: post
+title: (Security) JWT 인증 방식
+category: security
+tags: [security]
+---
 ## 유저 인증
 
  유저 인증이란 무엇일까? 유저 인증은 어떤 서비스에 속한 유저가 정상적으로 로그인을 하여
