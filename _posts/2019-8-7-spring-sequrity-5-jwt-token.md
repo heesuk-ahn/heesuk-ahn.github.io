@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (스프링) 1. 스프링 시큐리티 5 + JWT 인증 구현
+title: (스프링) 1. 스프링 시큐리티 5 Reactive + JWT 인증 구현
 category: spring
 tags: [spring]
 ---
@@ -247,5 +247,7 @@ Controller에서도 Principal 정보 (토큰 페이로드)를 얻을 수 있는 
 
 참고:
 
-[스프링 패키지 요약 문서] https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/server/package-summary.html
+[스프링 패키지 요약 문서]
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/server/package-summary.html
+
 [스프링 security code 참고]
