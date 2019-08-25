@@ -89,7 +89,7 @@ analytics :
 # For about.html. Fell free to create your own!
 language_skill: [Scala, Java, Python]
 
-library_skill: [Akka]
+library_skill: [Akka, Spring, Cats IO]
 
 devops_skill : [AWS ECS, Docker, Kubernetes, GCP]
 
