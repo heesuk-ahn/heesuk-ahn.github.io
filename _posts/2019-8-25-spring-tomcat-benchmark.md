@@ -153,4 +153,4 @@ client를 사용하는 것이 성능에 이점이 있다. 특히 스프링 5부�
 - Tomcat에서 BIO와 NIO 퍼포먼스 차이는?
 - Tomcat의 BIO 버전에서 스레드를 1개로 고정시키고 스프링 컨테이너 내부에서 워커 스레드로 blocking IO를 처리한다면,
   Tomcat NIO 모델처럼 좋은 퍼포먼스를 낼 수 있을까? 작업을 완료하였을 때, HttpResponse를 서블릿으로 내보내기 위한
-  스레드 자원을 다시 Tomcat에서 불러올 수 있는지 테스트 해봐야 한다.
+  스레드 자원을 다시 Tomcat에서 CallBack 으로 불러올 수 있을까?
