@@ -144,12 +144,10 @@ AsyncRestTemplate asyncRestTemplate = new AsyncRestTemplate(new Netty4ClientHttp
 이를 통해서 스레드 1개로도 충분한 퍼포먼스를 보일 수 있다는 것을 알 수 있었다.
  위에 테스트 처럼 실제로 개발시에 Remote Call을 할 때는 blocking이 걸리는 RestTemplate 대신에 Non-Blocking
 client를 사용하는 것이 성능에 이점이 있다. 특히 스프링 5부터는  AsyncRestTemplate는 Deprecated되고 Webflux의
-`WebClient`를 사용하면 간단히 논블락/어싱크 콜을 구현할 수 있다.
+`WebClient`를 사용하면 간단히 논블락/어싱크 콜을 구현할 수 있다. webflux의 webClient는 spring webflux 벤치마크 테스트 때 구현할 예정이다.
  다음번에는 NetworkIO가 아니라 DatabaseIO 관점에서 테스트 후 글을 작성해보고자 한다.
 
+### 내용 보강 할 것 (TODO)
 
-
- ### 내용 보강 (TODO)
-
- - thread가 block method에 만나면 어떤 Status에 빠지게 될까?
- - Tomcat에서 BIO와 NIO 퍼포먼스 차이는?
+- thread가 block method에 만나면 어떤 Status에 빠지게 될까?
+- Tomcat에서 BIO와 NIO 퍼포먼스 차이는?
