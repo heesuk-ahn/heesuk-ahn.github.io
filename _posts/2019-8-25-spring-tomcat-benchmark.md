@@ -23,7 +23,7 @@ tags: [benchmark]
 그때 바로 `스레드 컨텍스트 스위칭`이 발생하게 된다. 그리고 블락 상태에 대기중인 스레드는 다른 일을 하지 못하고 해당 함수가 종료 될 때까지, `가만히 기다리게 된다.`
 이러한 현상이 지속되면, 일을 할 수 있는 스레드가 병목 지점에서 대기하게 되고, 결국 스레드 풀 헬 현상까지 이어지게 된다.
 
-[!thread-pool-hell](https://github.com/heesuk-ahn/server-benchmark/blob/master/spring-boot-with-tomcat/images/thread-pool-hell.png?raw=true)
+![thread-pool-hell](https://github.com/heesuk-ahn/server-benchmark/blob/master/spring-boot-with-tomcat/images/thread-pool-hell.png?raw=true)
 
 ### 동기 방식 테스트 시나리오
 
@@ -123,8 +123,7 @@ Running 10s test @ http://localhost:8082/v1/helloAsyncRestTemplate
 Requests/sec:     89.29
 Transfer/sec:     12.21KB
 ```
-
-[!ASYNC-RestTemplate](https://github.com/heesuk-ahn/server-benchmark/blob/master/spring-boot-with-tomcat/images/ASYNC-RestTemplate.png?raw=true)
+![ASYNC-RestTemplate](https://github.com/heesuk-ahn/server-benchmark/blob/master/spring-boot-with-tomcat/images/ASYNC-RestTemplate.png?raw=true)
 
  Test Case 3번의 경우에는 톰캣 스레드가 1개이지만 좋은 퍼포먼스를 보인다.
 하지만 이미지를 보면 알수 잇듯이 실제 워커 스레드가 100개가 넘게 생성되어 처리를 한다.
