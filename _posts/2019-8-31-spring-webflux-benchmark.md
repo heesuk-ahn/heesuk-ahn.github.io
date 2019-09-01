@@ -213,9 +213,8 @@ event loop의 디폴트 사이즈 스레드로만도 이정도 성능을 낸다�
 
  Blocking IO가 코드 내에 존재하지 않는다면 Webflux는 적은 스레드 수로 최대의 성능을 낼 수 있다.
 하지만 현재 JDBC는 Blocking 코드로 이루어져 있으므로, JDBC가 아닌 Non-block이 보장되는 mongo 디비를 사용하는 것을
-추천한다. 기대하기로는 JDBC Non block API가 나온다면 RDBMS에서도 좋은 성능을 기대해 볼 듯하다.
+추천한다. 기대하기로는 JDBC Non block API가 나온다면, (R2DBC) RDBMS에서도 좋은 성능을 기대해 볼 듯하다.
 
 
 ## TODO
-- webClient 테스트 케이스 추가하기
-- rxjava2-jdbc 로 성능 테스트 추가하기  
+- webClient 테스트 케이스 추가하기  
