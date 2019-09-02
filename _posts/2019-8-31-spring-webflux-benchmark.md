@@ -86,7 +86,7 @@ Reactive 스타일은 이벤트 드리븐 스타일로 호출한 쪽에서 호�
 대해서는 다음번에 좀 더 자세하게 정리해보고자 한다.
 
 
-## 벤치마 테스트 시나리오
+## 벤치마크 테스트 시나리오
 
  아래와 같은 3가지의 벤치마크를 실시한다.
 
@@ -216,5 +216,15 @@ event loop의 디폴트 사이즈 스레드로만도 이정도 성능을 낸다�
 추천한다. 기대하기로는 JDBC Non block API가 나온다면, (R2DBC) RDBMS에서도 좋은 성능을 기대해 볼 듯하다.
 
 
+## 깃허브
+
+벤치마크 예제는 깃허브에 업데이트 해놓았습니다! 문서에서 잘못된 부분이 있다면 언제든지 heesuk.dev@gmail.com
+으로 연락주시면 감사하겠습니다. :D
+
+```
+https://github.com/heesuk-ahn/server-benchmark/tree/master/springboot-with-webflux
+```
+
 ## TODO
 - webClient 테스트 케이스 추가하기  
+- webflux 내부에서 이벤트 드리븐 아키텍처에서 스레드가 동작하는 방법 더 자세하게 알아보기
